@@ -2,7 +2,7 @@
 
 A production-ready RESTful API built with PHP using SOLID principles and modern OOP practices. This API integrates with three external services (Genderize, Agify, Nationalize) to classify and persist profile data.
 
-## 🎯 Features
+## Features
 
 - **Multi-API Integration**: Seamlessly integrates with Genderize, Agify, and Nationalize APIs
 - **Data Persistence**: Stores classified profiles in MySQL database
@@ -14,7 +14,7 @@ A production-ready RESTful API built with PHP using SOLID principles and modern 
 - **SOLID Principles**: Clean, maintainable, and testable code
 - **Comprehensive Error Handling**: Proper HTTP status codes and error messages
 
-## 🏗️ Architecture
+## Architecture
 
 ```example
 src/
