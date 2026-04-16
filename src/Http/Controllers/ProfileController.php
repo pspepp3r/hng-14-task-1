@@ -21,7 +21,7 @@ final class ProfileController
     public function create()
     {
         try {
-            $name = $_POST['name'];
+            $name = $_POST['name'] ?: \json_decode(\file_get_contents('php://input'))->name;
 
             // Validate name
             if (empty($name ?? null)) {
@@ -30,20 +30,22 @@ final class ProfileController
             }
 
             // Validate type
-            if (!is_string($name)) {
+            if (!\is_string($name)) {
                 Response::error('Invalid type', 422)->send();
                 return;
             }
 
             // Create or get profile
             $result = $this->profileService->createOrGetProfile($name);
+            /**
+             * @var \App\Models\Profile */
             $profile = $result['profile'];
             $isNew = $result['isNew'];
             $message = $result['message'];
 
             $statusCode = $isNew ? 201 : 200;
             $response = Response::success(
-                [$profile->toArray()],
+                $profile->toArray(),
                 $statusCode,
                 $message
             );
