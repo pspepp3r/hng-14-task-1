@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-final class AgeGroupClassifier
+enum AgeGroupClassifier: int
 {
-    private const CHILD_MAX = 12;
-    private const TEENAGER_MAX = 19;
-    private const ADULT_MAX = 59;
+    case CHILD_MAX = 12;
+    case TEENAGER_MAX = 19;
+    case ADULT_MAX = 59;
 
     public static function classify(int $age): string
     {
